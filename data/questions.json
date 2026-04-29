@@ -1,0 +1,107 @@
+[
+  {
+    "question": "Name an excuse for missing a standup",
+    "answers": [
+      { "text": "Doctor/Appointment", "points": 30 },
+      { "text": "Overslept", "points": 18 },
+      { "text": "Meeting Conflict", "points": 15 },
+      { "text": "Kid/Family Related", "points": 15 },
+      { "text": "Pet/Animal Related", "points": 11 },
+      { "text": "Act of God", "points": 11 }
+    ]
+  },
+  {
+    "question": "Name a frequently asked icebreaker question",
+    "answers": [
+      { "text": "What's your fun fact", "points": 30 },
+      { "text": "What's your spirit animal", "points": 25 },
+      { "text": "If you were a fruit what would you be", "points": 20 },
+      { "text": "Two truths and a lie", "points": 15 },
+      { "text": "What's your superpower", "points": 10 }
+    ]
+  },
+  {
+    "question": "Name something that's always broken right before a big demo",
+    "answers": [
+      { "text": "A bug appears", "points": 28 },
+      { "text": "Environment/Build broken", "points": 22 },
+      { "text": "Audio/Mic", "points": 18 },
+      { "text": "WiFi", "points": 15 },
+      { "text": "Laptop issues", "points": 10 },
+      { "text": "Login/Credentials", "points": 7 }
+    ]
+  },
+  {
+    "question": "Name an animal without legs",
+    "answers": [
+      { "text": "Snake", "points": 59 },
+      { "text": "Fish/Eel/Shark", "points": 23 },
+      { "text": "Whale", "points": 5 },
+      { "text": "Seal/Sea Lion", "points": 4 },
+      { "text": "Worm", "points": 2 }
+    ]
+  },
+  {
+    "question": "Name a tech buzzword that makes you cringe",
+    "answers": [
+      { "text": "Agentic", "points": 25 },
+      { "text": "Vibe Coding", "points": 20 },
+      { "text": "AI (all variations)", "points": 20 },
+      { "text": "Disruptive", "points": 10 },
+      { "text": "Double Click", "points": 10 },
+      { "text": "10x Engineer", "points": 10 }
+    ]
+  },
+  {
+    "question": "Name something that comes in sevens",
+    "answers": [
+      { "text": "Dwarfs", "points": 28 },
+      { "text": "Deadly Sins", "points": 23 },
+      { "text": "World Wonders", "points": 15 },
+      { "text": "Days of the Week", "points": 14 },
+      { "text": "Seas", "points": 9 },
+      { "text": "Continents", "points": 5 }
+    ]
+  },
+  {
+    "question": "Name a reason a meeting runs over time",
+    "answers": [
+      { "text": "Someone won't stop talking", "points": 30 },
+      { "text": "Went off topic", "points": 25 },
+      { "text": "Started late", "points": 20 },
+      { "text": "Last minute questions", "points": 15 },
+      { "text": "No agenda", "points": 10 }
+    ]
+  },
+  {
+    "question": "Name a place people often lose their keys",
+    "answers": [
+      { "text": "At home", "points": 55 },
+      { "text": "At the mall", "points": 17 },
+      { "text": "In a purse/bag", "points": 10 },
+      { "text": "In the car", "points": 7 },
+      { "text": "At a bar", "points": 6 }
+    ]
+  },
+  {
+    "question": "Name a reason to throw a party",
+    "answers": [
+      { "text": "Birthday", "points": 35 },
+      { "text": "Graduation", "points": 25 },
+      { "text": "Wedding", "points": 20 },
+      { "text": "Holiday", "points": 10 },
+      { "text": "Bachelor/Bachelorette", "points": 6 },
+      { "text": "Coming of age", "points": 4 }
+    ]
+  },
+  {
+    "question": "Name something people do before a big presentation",
+    "answers": [
+      { "text": "Practice", "points": 34 },
+      { "text": "Panic", "points": 21 },
+      { "text": "Drink water/coffee", "points": 18 },
+      { "text": "Check notes", "points": 15 },
+      { "text": "Go to the bathroom", "points": 12 }
+    ]
+  }
+]
