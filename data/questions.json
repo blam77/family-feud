@@ -1,107 +1,90 @@
 [
   {
-    "question": "Name an excuse for missing a standup",
+    "question": "Name something you do every morning",
     "answers": [
-      { "text": "Doctor/Appointment", "points": 30 },
-      { "text": "Overslept", "points": 18 },
-      { "text": "Meeting Conflict", "points": 15 },
-      { "text": "Kid/Family Related", "points": 15 },
-      { "text": "Pet/Animal Related", "points": 11 },
-      { "text": "Act of God", "points": 11 }
+      { "text": "Brush teeth", "points": 38 },
+      { "text": "Drink coffee", "points": 27 },
+      { "text": "Shower", "points": 14 },
+      { "text": "Check phone", "points": 9 },
+      { "text": "Eat breakfast", "points": 7 },
+      { "text": "Walk the dog", "points": 3 }
     ]
   },
   {
-    "question": "Name a frequently asked icebreaker question",
+    "question": "Name a vegetable kids hate",
     "answers": [
-      { "text": "What's your fun fact", "points": 30 },
-      { "text": "What's your spirit animal", "points": 25 },
-      { "text": "If you were a fruit what would you be", "points": 20 },
-      { "text": "Two truths and a lie", "points": 15 },
-      { "text": "What's your superpower", "points": 10 }
+      { "text": "Brussels sprouts", "points": 32 },
+      { "text": "Broccoli", "points": 28 },
+      { "text": "Spinach", "points": 18 },
+      { "text": "Cauliflower", "points": 11 },
+      { "text": "Asparagus", "points": 7 },
+      { "text": "Peas", "points": 4 }
     ]
   },
   {
-    "question": "Name something that's always broken right before a big demo",
+    "question": "Name a reason you'd be late to work",
     "answers": [
-      { "text": "A bug appears", "points": 28 },
-      { "text": "Environment/Build broken", "points": 22 },
-      { "text": "Audio/Mic", "points": 18 },
-      { "text": "WiFi", "points": 15 },
-      { "text": "Laptop issues", "points": 10 },
-      { "text": "Login/Credentials", "points": 7 }
+      { "text": "Traffic", "points": 41 },
+      { "text": "Overslept", "points": 25 },
+      { "text": "Sick kid", "points": 14 },
+      { "text": "Car trouble", "points": 10 },
+      { "text": "Bad weather", "points": 7 },
+      { "text": "Forgot something", "points": 3 }
     ]
   },
   {
-    "question": "Name an animal without legs",
+    "question": "Name something you'd find in a typical office",
     "answers": [
-      { "text": "Snake", "points": 59 },
-      { "text": "Fish/Eel/Shark", "points": 23 },
-      { "text": "Whale", "points": 5 },
-      { "text": "Seal/Sea Lion", "points": 4 },
-      { "text": "Worm", "points": 2 }
+      { "text": "Computer", "points": 36 },
+      { "text": "Desk", "points": 22 },
+      { "text": "Coffee maker", "points": 15 },
+      { "text": "Printer", "points": 12 },
+      { "text": "Stapler", "points": 9 },
+      { "text": "Plant", "points": 6 }
     ]
   },
   {
-    "question": "Name a tech buzzword that makes you cringe",
+    "question": "Name something people pretend to like",
     "answers": [
-      { "text": "Agentic", "points": 25 },
-      { "text": "Vibe Coding", "points": 20 },
-      { "text": "AI (all variations)", "points": 20 },
-      { "text": "Disruptive", "points": 10 },
-      { "text": "Double Click", "points": 10 },
-      { "text": "10x Engineer", "points": 10 }
+      { "text": "Bad gifts", "points": 29 },
+      { "text": "Coworker's jokes", "points": 24 },
+      { "text": "In-laws' cooking", "points": 18 },
+      { "text": "Their job", "points": 13 },
+      { "text": "Someone's baby", "points": 10 },
+      { "text": "Modern art", "points": 6 }
     ]
   },
   {
-    "question": "Name something that comes in sevens",
+    "question": "Name a thing you'd take to a deserted island",
     "answers": [
-      { "text": "Dwarfs", "points": 28 },
-      { "text": "Deadly Sins", "points": 23 },
-      { "text": "World Wonders", "points": 15 },
-      { "text": "Days of the Week", "points": 14 },
-      { "text": "Seas", "points": 9 },
-      { "text": "Continents", "points": 5 }
+      { "text": "Knife", "points": 31 },
+      { "text": "Phone", "points": 24 },
+      { "text": "Lighter", "points": 17 },
+      { "text": "Water", "points": 13 },
+      { "text": "Book", "points": 9 },
+      { "text": "Sunscreen", "points": 6 }
     ]
   },
   {
-    "question": "Name a reason a meeting runs over time",
+    "question": "Name a thing you'd take to a deserted island",
     "answers": [
-      { "text": "Someone won't stop talking", "points": 30 },
-      { "text": "Went off topic", "points": 25 },
-      { "text": "Started late", "points": 20 },
-      { "text": "Last minute questions", "points": 15 },
-      { "text": "No agenda", "points": 10 }
+      { "text": "Knife", "points": 31 },
+      { "text": "Phone", "points": 24 },
+      { "text": "Lighter", "points": 17 },
+      { "text": "Water", "points": 13 },
+      { "text": "Book", "points": 9 },
+      { "text": "Sunscreen", "points": 6 }
     ]
   },
   {
-    "question": "Name a place people often lose their keys",
+    "question": "Name a thing you'd take to a deserted island",
     "answers": [
-      { "text": "At home", "points": 55 },
-      { "text": "At the mall", "points": 17 },
-      { "text": "In a purse/bag", "points": 10 },
-      { "text": "In the car", "points": 7 },
-      { "text": "At a bar", "points": 6 }
-    ]
-  },
-  {
-    "question": "Name a reason to throw a party",
-    "answers": [
-      { "text": "Birthday", "points": 35 },
-      { "text": "Graduation", "points": 25 },
-      { "text": "Wedding", "points": 20 },
-      { "text": "Holiday", "points": 10 },
-      { "text": "Bachelor/Bachelorette", "points": 6 },
-      { "text": "Coming of age", "points": 4 }
-    ]
-  },
-  {
-    "question": "Name something people do before a big presentation",
-    "answers": [
-      { "text": "Practice", "points": 34 },
-      { "text": "Panic", "points": 21 },
-      { "text": "Drink water/coffee", "points": 18 },
-      { "text": "Check notes", "points": 15 },
-      { "text": "Go to the bathroom", "points": 12 }
+      { "text": "Knife", "points": 31 },
+      { "text": "Phone", "points": 24 },
+      { "text": "Lighter", "points": 17 },
+      { "text": "Water", "points": 13 },
+      { "text": "Book", "points": 9 },
+      { "text": "Sunscreen", "points": 6 }
     ]
   }
 ]

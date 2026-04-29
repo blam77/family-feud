@@ -11,7 +11,16 @@ const initialState = () => ({
   pot: 0,
   controllingTeamId: null,
   stealingTeamId: null,
-  mode: 'setup'
+  mode: 'setup',
+  fastMoneyActive: false,
+  fastMoneyComplete: false,
+  fastMoney: {
+    questions: [],
+    typedAnswers: {},
+    selections: {},
+    answerRevealed: {},
+    pointsRevealed: {}
+  }
 });
 
 let state = loadFromStorage() || initialState();

@@ -1,0 +1,53 @@
+[
+  {
+    "question": "Name something engineers argue about that doesn't matter",
+    "answers": [
+      { "text": "Tabs vs spaces", "points": 35 },
+      { "text": "Best programming language", "points": 25 },
+      { "text": "Vim vs VS Code", "points": 18 },
+      { "text": "Variable naming conventions", "points": 12 },
+      { "text": "Semicolons or no semicolons", "points": 10 }
+    ]
+  },
+  {
+    "question": "Fill in the blank: Move the _____",
+    "answers": [
+      { "text": "Needle", "points": 38 },
+      { "text": "Deadline", "points": 22 },
+      { "text": "Ticket", "points": 17 },
+      { "text": "Goalposts", "points": 11 },
+      { "text": "Meeting", "points": 8 },
+      { "text": "Ball forward", "points": 4 }
+    ]
+  },
+  {
+    "question": "Name something people do on a Sunday to prepare for the week",
+    "answers": [
+      { "text": "Meal prep", "points": 35 },
+      { "text": "Do laundry", "points": 25 },
+      { "text": "Make a to-do list", "points": 18 },
+      { "text": "Go grocery shopping", "points": 14 },
+      { "text": "Go to bed early", "points": 8 }
+    ]
+  },
+  {
+    "question": "Name something every software engineer has on their desk",
+    "answers": [
+      { "text": "Multiple monitors", "points": 32 },
+      { "text": "Coffee/energy drink", "points": 28 },
+      { "text": "Mechanical keyboard", "points": 18 },
+      { "text": "Fidget toy", "points": 12 },
+      { "text": "Headphones", "points": 10 }
+    ]
+  },
+  {
+    "question": "Name a sign someone just got back from vacation",
+    "answers": [
+      { "text": "Overflowing inbox", "points": 35 },
+      { "text": "Tan/sunburned", "points": 25 },
+      { "text": "Brings back snacks/gifts", "points": 18 },
+      { "text": "Still in vacation mode", "points": 14 },
+      { "text": "Won't stop talking about the trip", "points": 8 }
+    ]
+  }
+]

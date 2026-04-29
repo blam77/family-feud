@@ -19,7 +19,8 @@
 body {
   background: var(--bg);
   color: var(--white);
-  font-family: Impact, "Arial Black", "Helvetica Neue", sans-serif;
+  font-family: "Barlow Condensed", Impact, "Arial Black", sans-serif;
+  font-weight: 700;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
@@ -177,6 +178,15 @@ input[type="number"]:focus {
   width: 100%;
 }
 
+.question-hidden {
+  visibility: hidden;
+}
+
+.slot.slot-empty {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .board-main {
   display: flex;
   flex-direction: column;
@@ -187,6 +197,7 @@ input[type="number"]:focus {
 .answer-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 520px));
+  grid-auto-flow: column;
   gap: 14px 24px;
   width: 100%;
   max-width: 1100px;
@@ -720,4 +731,233 @@ input[type="number"]:focus {
   padding: 3px 8px;
   border-radius: 4px;
   letter-spacing: 1px;
+}
+
+/* ============================================================
+   FAST MONEY — BOARD VIEW
+   ============================================================ */
+
+.fm-board {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 24px 36px;
+  gap: 16px;
+}
+
+.fm-header {
+  text-align: center;
+  font-size: 64px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  text-shadow: 0 0 30px rgba(245, 197, 24, 0.4);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.fm-grid {
+  display: grid;
+  flex: 1;
+  gap: 10px 16px;
+  align-content: start;
+}
+
+.fm-col-header {
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  padding: 8px 0;
+  border-bottom: 2px solid var(--gold-dim);
+}
+
+.fm-q-label-header {
+  border-bottom: 2px solid var(--gold-dim);
+}
+
+.fm-q-label {
+  font-size: 18px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.fm-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.fm-cell-answer {
+  width: 100%;
+  background: linear-gradient(180deg, #14306b 0%, #0a1f4a 100%);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  gap: 8px;
+}
+
+.fm-cell-answer-text {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fm-cell-answer.revealed {
+  background: linear-gradient(180deg, #1f4d9c 0%, #14306b 100%);
+  color: var(--white);
+}
+
+.fm-cell-answer.no-match {
+  background: linear-gradient(180deg, #5a1010 0%, #3d0a0a 100%);
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.fm-cell-answer.just-flipped {
+  animation: flip 0.5s ease;
+}
+
+.fm-cell-points {
+  background: transparent;
+  color: transparent;
+  border-radius: 6px;
+  font-size: 22px;
+  padding: 4px 10px;
+  min-width: 52px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.fm-cell-points.revealed {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.fm-cell-points.just-flipped {
+  animation: flip 0.5s ease;
+}
+
+.fm-totals-bar {
+  flex-shrink: 0;
+  gap: 10px 16px;
+  border-top: 3px solid var(--gold);
+  padding-top: 12px;
+}
+
+.fm-totals-label {
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.fm-total {
+  text-align: center;
+  font-size: 48px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* ============================================================
+   FAST MONEY — HOST VIEW
+   ============================================================ */
+
+.fm-host-question-panel {
+  margin-bottom: 14px;
+}
+
+.fm-host-q-label {
+  font-size: 20px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.fm-host-team-row {
+  border-top: 1px solid var(--gold-dim);
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fm-host-team-name {
+  font-size: 16px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.fm-host-entry-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.fm-typed-input {
+  flex: 1;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.fm-host-answer-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.fm-answer-btn {
+  font-size: 13px;
+  padding: 6px 10px;
+  letter-spacing: 0;
+  border-width: 1px;
+}
+
+.fm-answer-btn.selected {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.fm-no-match-btn {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.fm-no-match-btn.selected {
+  background: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+}
+
+.fm-host-reveal-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.fm-host-selection-label {
+  flex: 1;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  min-width: 120px;
 }

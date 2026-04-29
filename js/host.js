@@ -36,7 +36,7 @@ function teamInputsHTML(count, existingValues = {}) {
   return rows.join('');
 }
 
-function setupHTML(teamCount = 3) {
+function setupHTML(teamCount = 2) {
   return `
     <div class="host">
       <img class="feud-logo" src="Family-Feud-Logo-500x281.png" alt="Family Feud" style="margin-bottom: 8px;" />
@@ -132,7 +132,7 @@ function faceoffSection(state) {
 }
 
 function answersSection(state, round) {
-  if (state.mode === 'setup' || state.mode === 'faceoff') return '';
+  if (state.mode === 'setup') return '';
   return `
     <h2>Answers</h2>
     <div class="host-answers">
@@ -193,10 +193,9 @@ function actionButtons(state) {
       <div class="button-row">
         ${isLast
           ? `<button class="primary" data-action="end-game">End game &rarr; show final scores</button>`
-          : `
-            <button class="primary" data-action="next-round">Next round &rarr;</button>
-          `
+          : `<button class="primary" data-action="next-round">Next round &rarr;</button>`
         }
+        <button data-action="start-fast-money">Fast Money &rarr;</button>
       </div>
     `;
   }
@@ -287,7 +286,146 @@ function navPanel(state) {
         <button data-action="reset-round">Reset current round</button>
         <button class="danger" data-action="end-game-now">End game now</button>
         <button class="danger" data-action="new-game">New game (reset all)</button>
+        <button class="primary" data-action="start-fast-money">Fast Money &rarr;</button>
       </div>
+    </div>
+  `;
+}
+
+function fmScore(state, teamId) {
+  const fm = state.fastMoney || {};
+  return (fm.questions || []).reduce((sum, q, qIdx) => {
+    const key = `${qIdx}_${teamId}`;
+    if (!(fm.pointsRevealed || {})[key]) return sum;
+    const sel = (fm.selections || {})[key];
+    if (sel === undefined || sel === -1) return sum;
+    return sum + (q.answers[sel]?.points || 0);
+  }, 0);
+}
+
+function fastMoneyWinnerHTML(state) {
+  const scores = state.teams.map((t) => ({ team: t, score: fmScore(state, t.id) }))
+    .sort((a, b) => b.score - a.score);
+  return `
+    <div class="host">
+      <h1>FAST MONEY &mdash; RESULTS</h1>
+      <div class="panel">
+        <div class="final-scores">
+          ${scores.map((s, i) => `
+            <div class="row ${i === 0 ? 'winner' : ''}">
+              <span>${escapeHtml(s.team.name)}${i === 0 ? ' — WINNER' : ''}</span>
+              <span class="points">${s.score}</span>
+            </div>
+          `).join('')}
+        </div>
+        <div class="button-row" style="margin-top:16px;">
+          <button class="danger" data-action="new-game">New Game (reset all)</button>
+        </div>
+      </div>
+      <div class="sync-pill" id="sync-pill"></div>
+    </div>
+  `;
+}
+
+function fastMoneyHostHTML(state) {
+  const fm = {
+    questions: [],
+    typedAnswers: {},
+    selections: {},
+    answerRevealed: {},
+    pointsRevealed: {},
+    ...state.fastMoney
+  };
+  return `
+    <div class="host">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+        <h1>FAST MONEY &mdash; HOST</h1>
+        <button class="primary" data-action="end-fast-money">End Game &rarr; Show Winner</button>
+      </div>
+      <div class="panel" style="margin-bottom:14px;">
+        <h2>Running Totals</h2>
+        <div style="display:flex; gap:24px; flex-wrap:wrap;">
+          ${state.teams.map((t) => `
+            <div style="font-size:22px;">
+              <span style="color:var(--muted);">${escapeHtml(t.name)}:</span>
+              <span style="color:var(--gold); margin-left:8px;">${fmScore(state, t.id)}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      ${fm.questions.map((q, qIdx) => `
+        <div class="panel fm-host-question-panel">
+          <div class="fm-host-q-label">Q${qIdx + 1}: ${escapeHtml(q.question)}</div>
+          ${state.teams.map((t) => {
+            const key = `${qIdx}_${t.id}`;
+            const sel = fm.selections[key];
+            const typed = fm.typedAnswers[key] || '';
+            const ansRevealed = fm.answerRevealed[key];
+            const ptsRevealed = fm.pointsRevealed[key];
+            const selectedAnswer = sel !== undefined && sel !== -1 ? q.answers[sel] : null;
+            const noMatch = sel === -1;
+            const canRevealAnswer = typed.trim() !== '' && sel !== undefined && !ansRevealed;
+            return `
+              <div class="fm-host-team-row">
+                <div class="fm-host-team-name">${escapeHtml(t.name)}</div>
+                <div class="fm-host-entry-row">
+                  <input
+                    type="text"
+                    class="fm-typed-input"
+                    placeholder="Their answer..."
+                    value="${escapeHtml(typed)}"
+                    data-action="type-fm-answer"
+                    data-qidx="${qIdx}"
+                    data-team-id="${t.id}"
+                    ${ansRevealed ? 'disabled' : ''}
+                  />
+                </div>
+                <div style="font-size:13px; color:var(--muted); margin-bottom:4px; font-family:system-ui;">Points mapping:</div>
+                <div class="fm-host-answer-btns">
+                  ${q.answers.map((a, aIdx) => `
+                    <button
+                      class="fm-answer-btn ${sel === aIdx ? 'selected' : ''}"
+                      data-action="select-fm-answer"
+                      data-qidx="${qIdx}"
+                      data-team-id="${t.id}"
+                      data-aidx="${aIdx}"
+                      ${ansRevealed ? 'disabled' : ''}
+                    >${escapeHtml(a.text)} (${a.points})</button>
+                  `).join('')}
+                  <button
+                    class="fm-answer-btn fm-no-match-btn ${noMatch ? 'selected' : ''}"
+                    data-action="select-fm-answer"
+                    data-qidx="${qIdx}"
+                    data-team-id="${t.id}"
+                    data-aidx="-1"
+                    ${ansRevealed ? 'disabled' : ''}
+                  >No Match</button>
+                </div>
+                <div class="fm-host-reveal-row">
+                  <span class="fm-host-selection-label">
+                    ${sel === undefined ? '<span style="color:var(--muted);">no points mapping</span>' :
+                      noMatch ? '<span style="color:var(--red);">NO MATCH &mdash; 0pts</span>' :
+                      `<span style="color:var(--gold);">${escapeHtml(selectedAnswer.text)} &mdash; ${selectedAnswer.points}pts</span>`}
+                  </span>
+                  <button
+                    data-action="reveal-fm-answer"
+                    data-qidx="${qIdx}"
+                    data-team-id="${t.id}"
+                    ${!canRevealAnswer ? 'disabled' : ''}
+                  >Reveal Answer &#9654;</button>
+                  <button
+                    data-action="reveal-fm-points"
+                    data-qidx="${qIdx}"
+                    data-team-id="${t.id}"
+                    ${!ansRevealed || ptsRevealed ? 'disabled' : ''}
+                  >Reveal Points &#9654;</button>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `).join('')}
+      <div class="sync-pill" id="sync-pill"></div>
     </div>
   `;
 }
@@ -309,6 +447,17 @@ function mainHTML(state) {
 
 function render(state) {
   const root = document.getElementById('app');
+  if (state.fastMoneyActive) {
+    if (state.fastMoneyComplete) {
+      root.innerHTML = fastMoneyWinnerHTML(state);
+      return;
+    }
+    if (document.activeElement && document.activeElement.matches('input[data-action="type-fm-answer"]')) {
+      return;
+    }
+    root.innerHTML = fastMoneyHostHTML(state);
+    return;
+  }
   if (state.mode === 'setup') {
     const checked = document.querySelector('input[name="team-count"]:checked');
     const teamCount = checked ? parseInt(checked.value, 10) : 3;
@@ -503,6 +652,83 @@ function newGame() {
   resetAll();
 }
 
+let fastMoneyQuestionsCache = null;
+
+async function startFastMoney() {
+  if (!fastMoneyQuestionsCache) {
+    try {
+      const res = await fetch('data/fast-money.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      fastMoneyQuestionsCache = await res.json();
+    } catch (e) {
+      alert(`Failed to load fast-money.json: ${e.message}`);
+      return;
+    }
+  }
+  setState({
+    fastMoneyActive: true,
+    fastMoney: {
+      questions: fastMoneyQuestionsCache,
+      typedAnswers: {},
+      selections: {},
+      answerRevealed: {},
+      pointsRevealed: {}
+    }
+  });
+}
+
+function setFastMoneyTypedAnswer(qIdx, teamId, text) {
+  const state = getState();
+  const key = `${qIdx}_${teamId}`;
+  if (state.fastMoney.answerRevealed[key]) return;
+  setState({
+    fastMoney: {
+      ...state.fastMoney,
+      typedAnswers: { ...state.fastMoney.typedAnswers, [key]: text }
+    }
+  });
+}
+
+function selectFastMoneyAnswer(qIdx, teamId, answerIdx) {
+  const state = getState();
+  const key = `${qIdx}_${teamId}`;
+  if (state.fastMoney.answerRevealed[key]) return;
+  const current = state.fastMoney.selections[key];
+  const newSelections = { ...state.fastMoney.selections };
+  if (current === answerIdx) {
+    delete newSelections[key];
+  } else {
+    newSelections[key] = answerIdx;
+  }
+  setState({ fastMoney: { ...state.fastMoney, selections: newSelections } });
+}
+
+function revealFastMoneyAnswer(qIdx, teamId) {
+  const state = getState();
+  const key = `${qIdx}_${teamId}`;
+  setState({
+    fastMoney: {
+      ...state.fastMoney,
+      answerRevealed: { ...state.fastMoney.answerRevealed, [key]: true }
+    }
+  });
+}
+
+function revealFastMoneyPoints(qIdx, teamId) {
+  const state = getState();
+  const key = `${qIdx}_${teamId}`;
+  setState({
+    fastMoney: {
+      ...state.fastMoney,
+      pointsRevealed: { ...state.fastMoney.pointsRevealed, [key]: true }
+    }
+  });
+}
+
+function endFastMoney() {
+  setState({ fastMoneyComplete: true });
+}
+
 function editScore(teamId, newScore) {
   const state = getState();
   const teams = state.teams.map((t) =>
@@ -538,6 +764,20 @@ document.addEventListener('click', (e) => {
     case 'end-game': endGame(); break;
     case 'end-game-now': endGameNow(); break;
     case 'new-game': newGame(); break;
+    case 'start-fast-money': startFastMoney(); break;
+    case 'select-fm-answer':
+      selectFastMoneyAnswer(+btn.dataset.qidx, btn.dataset.teamId, +btn.dataset.aidx); break;
+    case 'reveal-fm-answer':
+      revealFastMoneyAnswer(+btn.dataset.qidx, btn.dataset.teamId); break;
+    case 'reveal-fm-points':
+      revealFastMoneyPoints(+btn.dataset.qidx, btn.dataset.teamId); break;
+    case 'end-fast-money': endFastMoney(); break;
+  }
+});
+
+document.addEventListener('input', (e) => {
+  if (e.target.matches('input[data-action="type-fm-answer"]')) {
+    setFastMoneyTypedAnswer(+e.target.dataset.qidx, e.target.dataset.teamId, e.target.value);
   }
 });
 
