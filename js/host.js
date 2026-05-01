@@ -78,6 +78,7 @@ function gameOverHTML(state) {
         </div>
         <div class="button-row" style="margin-top: 16px;">
           <button data-action="prev-round">&larr; Back to last round</button>
+          <button class="primary" data-action="start-fast-money">Fast Money &rarr;</button>
           <button class="danger" data-action="new-game">New game</button>
         </div>
       </div>
@@ -479,6 +480,26 @@ function updateSyncPill(connected) {
 }
 
 /* ============================================================
+   AUDIO
+   ============================================================ */
+
+const sounds = {
+  correct: new Audio('family-feud-correct.mp3'),
+  incorrect: new Audio('family-feud-incorrect.mp3'),
+  win: new Audio('family-feud-win.mp3'),
+};
+sounds.correct.volume = 0.2;
+sounds.incorrect.volume = 0.2;
+sounds.win.volume = 0.2;
+
+function playSound(name) {
+  const audio = sounds[name];
+  if (!audio) return;
+  audio.currentTime = 0;
+  audio.play().catch(() => {});
+}
+
+/* ============================================================
    ACTIONS
    ============================================================ */
 
@@ -516,6 +537,7 @@ async function startGame() {
     faceoffFirstPick: null,
     mode: 'faceoff'
   });
+  playSound('win');
 }
 
 function pickFaceoffTeam(teamId) {
@@ -564,11 +586,13 @@ function revealAnswer(idx) {
     revealed: newRevealed,
     pot: state.pot + points
   });
+  playSound('correct');
 }
 
 function addStrike() {
   const state = getState();
   if (state.mode !== 'play') return;
+  playSound('incorrect');
   const newStrikes = state.strikes + 1;
   setState({
     strikes: newStrikes,
@@ -600,10 +624,16 @@ function stealCorrect() {
 
 function stealFailed() {
   const state = getState();
-  const teams = state.teams.map((t) =>
-    t.id === state.controllingTeamId ? { ...t, score: t.score + state.pot } : t
-  );
-  setState({ teams, mode: 'roundEnd' });
+  playSound('incorrect');
+  setState({ strikeFlashCount: (state.strikeFlashCount || 0) + 1 });
+
+  setTimeout(() => {
+    const s = getState();
+    const teams = s.teams.map((t) =>
+      t.id === s.controllingTeamId ? { ...t, score: t.score + s.pot } : t
+    );
+    setState({ teams, mode: 'roundEnd' });
+  }, 1000);
 }
 
 function goToRound(idx) {
@@ -633,6 +663,7 @@ function resetCurrentRound() {
 
 function endGame() {
   setState({ mode: 'gameOver' });
+  playSound('win');
 }
 
 function endGameNow() {
@@ -645,6 +676,7 @@ function endGameNow() {
     if (!confirm('End game now and skip remaining rounds?')) return;
   }
   setState({ mode: 'gameOver' });
+  playSound('win');
 }
 
 function newGame() {
@@ -727,6 +759,7 @@ function revealFastMoneyPoints(qIdx, teamId) {
 
 function endFastMoney() {
   setState({ fastMoneyComplete: true });
+  playSound('win');
 }
 
 function editScore(teamId, newScore) {

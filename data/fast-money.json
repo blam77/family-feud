@@ -1,52 +1,53 @@
 [
   {
-    "question": "Name something people do when bored in a meeting",
+    "question": "Name something engineers argue about that doesn't matter",
     "answers": [
-      { "text": "Scroll their phone", "points": 38 },
-      { "text": "Daydream / zone out", "points": 27 },
-      { "text": "Online shopping", "points": 16 },
-      { "text": "Play with a pen", "points": 11 },
-      { "text": "Doodle", "points": 8 }
+      { "text": "Tabs vs spaces", "points": 35 },
+      { "text": "Best programming language", "points": 25 },
+      { "text": "Vim vs VS Code", "points": 18 },
+      { "text": "Variable naming conventions", "points": 12 },
+      { "text": "Semicolons or no semicolons", "points": 10 }
     ]
   },
   {
-    "question": "Name a reason someone's laptop dies during a presentation",
+    "question": "Fill in the blank: Move the _____",
     "answers": [
-      { "text": "Battery died", "points": 42 },
-      { "text": "Forgot the charger", "points": 24 },
-      { "text": "Overheated", "points": 15 },
-      { "text": "Too many tabs open", "points": 12 },
-      { "text": "Software update", "points": 7 }
+      { "text": "Needle", "points": 38 },
+      { "text": "Deadline", "points": 22 },
+      { "text": "Ticket", "points": 17 },
+      { "text": "Goalposts", "points": 11 },
+      { "text": "Meeting", "points": 8 },
+      { "text": "Ball forward", "points": 4 }
     ]
   },
   {
-    "question": "Name something a Slack message says that gives you anxiety",
+    "question": "Name something people do on a Sunday to prepare for the week",
     "answers": [
-      { "text": "Can we hop on a call?", "points": 40 },
-      { "text": "Hey...", "points": 26 },
-      { "text": "Do you have a minute?", "points": 18 },
-      { "text": "Just following up", "points": 10 },
-      { "text": "Per my last message", "points": 6 }
+      { "text": "Meal prep", "points": 35 },
+      { "text": "Do laundry", "points": 25 },
+      { "text": "Make a to-do list", "points": 18 },
+      { "text": "Go grocery shopping", "points": 14 },
+      { "text": "Go to bed early", "points": 8 }
     ]
   },
   {
-    "question": "Name something teams forget to do before a sprint ends",
+    "question": "Name something every software engineer has on their desk",
     "answers": [
-      { "text": "Update tickets", "points": 35 },
-      { "text": "Write tests", "points": 28 },
-      { "text": "Update the docs", "points": 18 },
-      { "text": "Code review", "points": 12 },
-      { "text": "Demo prep", "points": 7 }
+      { "text": "Multiple monitors", "points": 32 },
+      { "text": "Coffee/energy drink", "points": 28 },
+      { "text": "Mechanical keyboard", "points": 18 },
+      { "text": "Fidget toy", "points": 12 },
+      { "text": "Headphones", "points": 10 }
     ]
   },
   {
-    "question": "Name an excuse for not having your camera on",
+    "question": "Name a sign someone just got back from vacation",
     "answers": [
-      { "text": "Still in pajamas", "points": 36 },
-      { "text": "Bad lighting", "points": 25 },
-      { "text": "Camera broken", "points": 19 },
-      { "text": "Eating lunch", "points": 13 },
-      { "text": "Kid in the background", "points": 7 }
+      { "text": "Overflowing inbox", "points": 35 },
+      { "text": "Tan/sunburned", "points": 25 },
+      { "text": "Brings back snacks/gifts", "points": 18 },
+      { "text": "Still in vacation mode", "points": 14 },
+      { "text": "Won't stop talking about the trip", "points": 8 }
     ]
   }
 ]

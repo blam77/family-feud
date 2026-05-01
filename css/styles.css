@@ -527,7 +527,7 @@ input[type="number"]:focus {
 }
 
 .host-question {
-  font-size: 22px;
+  font-size: 28px;
   color: var(--gold);
   margin-bottom: 14px;
   letter-spacing: 1px;
@@ -572,7 +572,7 @@ input[type="number"]:focus {
   padding: 10px 14px;
   border-radius: 6px;
   border: 1px solid var(--gold-dim);
-  font-size: 18px;
+  font-size: 28px;
 }
 
 .host-answer-row.revealed {

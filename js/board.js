@@ -2,6 +2,7 @@ import { getState, subscribe, onPeerStatus, isPeerConnected } from './state.js';
 import { isPlayingThisRound } from './rotation.js';
 
 let lastStrikes = -1;
+let lastStrikeFlashCount = 0;
 let bannerStartedAt = 0;
 let bannerHideTimer = null;
 let prevMode = null;
@@ -302,7 +303,9 @@ function render(state) {
 
   const becameMoreStrikes = lastStrikes !== -1 && state.strikes > lastStrikes;
   lastStrikes = state.strikes;
-  if (becameMoreStrikes) fireStrike();
+  const flashTriggered = state.strikeFlashCount > lastStrikeFlashCount;
+  lastStrikeFlashCount = state.strikeFlashCount || 0;
+  if (becameMoreStrikes || flashTriggered) fireStrike();
 }
 
 function updateSyncPill(connected) {

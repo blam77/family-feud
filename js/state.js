@@ -12,6 +12,7 @@ const initialState = () => ({
   controllingTeamId: null,
   stealingTeamId: null,
   mode: 'setup',
+  strikeFlashCount: 0,
   fastMoneyActive: false,
   fastMoneyComplete: false,
   fastMoney: {

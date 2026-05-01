@@ -21,24 +21,14 @@
     ]
   },
   {
-    "question": "Name something that's always broken right before a big demo",
+    "question": "Name something that comes in sevens",
     "answers": [
-      { "text": "A bug appears", "points": 28 },
-      { "text": "Environment/Build broken", "points": 22 },
-      { "text": "Audio/Mic", "points": 18 },
-      { "text": "WiFi", "points": 15 },
-      { "text": "Laptop issues", "points": 10 },
-      { "text": "Login/Credentials", "points": 7 }
-    ]
-  },
-  {
-    "question": "Name an animal without legs",
-    "answers": [
-      { "text": "Snake", "points": 59 },
-      { "text": "Fish/Eel/Shark", "points": 23 },
-      { "text": "Whale", "points": 5 },
-      { "text": "Seal/Sea Lion", "points": 4 },
-      { "text": "Worm", "points": 2 }
+      { "text": "Dwarfs", "points": 28 },
+      { "text": "Deadly Sins", "points": 23 },
+      { "text": "World Wonders", "points": 15 },
+      { "text": "Days of the Week", "points": 14 },
+      { "text": "Seas", "points": 9 },
+      { "text": "Continents", "points": 5 }
     ]
   },
   {
@@ -53,14 +43,35 @@
     ]
   },
   {
-    "question": "Name something that comes in sevens",
+    "question": "Name a reason to throw a party",
     "answers": [
-      { "text": "Dwarfs", "points": 28 },
-      { "text": "Deadly Sins", "points": 23 },
-      { "text": "World Wonders", "points": 15 },
-      { "text": "Days of the Week", "points": 14 },
-      { "text": "Seas", "points": 9 },
-      { "text": "Continents", "points": 5 }
+      { "text": "Birthday", "points": 35 },
+      { "text": "Graduation", "points": 25 },
+      { "text": "Wedding", "points": 20 },
+      { "text": "Holiday", "points": 10 },
+      { "text": "Bachelor/Bachelorette", "points": 6 },
+      { "text": "Coming of age", "points": 4 }
+    ]
+  },
+  {
+    "question": "Name an animal without legs",
+    "answers": [
+      { "text": "Snake", "points": 59 },
+      { "text": "Fish/Eel/Shark", "points": 23 },
+      { "text": "Whale", "points": 5 },
+      { "text": "Seal/Sea Lion", "points": 4 },
+      { "text": "Worm", "points": 2 }
+    ]
+  },
+  {
+    "question": "Name something that's always broken right before a big demo",
+    "answers": [
+      { "text": "A feature bug", "points": 28 },
+      { "text": "Environment/Build broken", "points": 22 },
+      { "text": "Audio/Mic", "points": 18 },
+      { "text": "WiFi", "points": 15 },
+      { "text": "Laptop issues", "points": 10 },
+      { "text": "Login/Credentials", "points": 7 }
     ]
   },
   {
@@ -81,17 +92,6 @@
       { "text": "In a purse/bag", "points": 10 },
       { "text": "In the car", "points": 7 },
       { "text": "At a bar", "points": 6 }
-    ]
-  },
-  {
-    "question": "Name a reason to throw a party",
-    "answers": [
-      { "text": "Birthday", "points": 35 },
-      { "text": "Graduation", "points": 25 },
-      { "text": "Wedding", "points": 20 },
-      { "text": "Holiday", "points": 10 },
-      { "text": "Bachelor/Bachelorette", "points": 6 },
-      { "text": "Coming of age", "points": 4 }
     ]
   },
   {
