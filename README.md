@@ -6,8 +6,6 @@ A browser-based Family Feud game built for virtual (Zoom) team events. No server
 
 1. Serve the files from a local server (required for ES modules):
    ```
-   npx serve .
-   # or
    python3 -m http.server
    ```
 2. Open **`host.html`** in one tab/window — this is the host control panel.
